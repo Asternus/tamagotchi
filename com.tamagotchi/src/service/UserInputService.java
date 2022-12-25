@@ -1,6 +1,7 @@
 package service;
 
 
+import actions.Casino;
 import actions.Food;
 import actions.Health;
 import actions.Play;
@@ -25,6 +26,8 @@ public class UserInputService {
     private final Health health = new Health();
     private final Store store = new Store();
     private final UsePresent usePresent = new UsePresent();
+
+    private final Casino casino = new Casino();
 
     public Animal userInputAnimalTypeName() {
         System.out.println("Available character types: ");
@@ -57,6 +60,7 @@ public class UserInputService {
         builder.append(4).append(") Cure\n");
         builder.append(5).append(") Shop\n");
         builder.append(6).append(") Inventory\n");
+        builder.append(7).append(") Casino\n");
 
         do {
             if (animal.getHungry() < 0) {
@@ -103,8 +107,9 @@ public class UserInputService {
                     }
 
                     for (int i = 0; i < present.size(); i++) {
+                        final Present present1 = present.get(i);
                         System.out.println("Chose present");
-                        System.out.println(i + 1 + " " + present.get(i).getName());
+                        System.out.printf("%d name: %s bonus: %s value: %s%n", i + 1, present1.getName(), present1.getBonusType(), present1.getBonus());
                     }
                     System.out.println("Chose 0 to return");
 
@@ -115,6 +120,10 @@ public class UserInputService {
                     }
 
                     usePresent.doAction(animal, i - 1);
+                    break;
+                }
+                case "7": {
+                    casino.doAction(animal);
                     break;
                 }
                 default:

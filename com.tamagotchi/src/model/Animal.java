@@ -59,25 +59,25 @@ public class Animal {
         this.present = new ArrayList<>();
     }
 
-    public void presents(final int chose) {
+    public void presents(final String chose) {
         switch (chose) {
-            case 1: {
-                final Present gift1 = new Present("Burger", 20 , BonusType.SATIETY);
+            case "1": {
+                final Present gift1 = new Present("Burger", 50 , BonusType.SATIETY);
                 present.add(gift1);
                 break;
             }
-            case 2: {
-                final Present gift2 = new Present("Soap", 20 , BonusType.PURITY);
+            case "2": {
+                final Present gift2 = new Present("Soap", 50 , BonusType.PURITY);
                 present.add(gift2);
                 break;
             }
-            case 3: {
-                final Present gift2 = new Present("Medicine", 20 , BonusType.CURE);
+            case "3": {
+                final Present gift2 = new Present("Medicine", 50 , BonusType.CURE);
                 present.add(gift2);
                 break;
             }
             default:
-                throw new IllegalStateException();
+                break;
         }
     }
 
@@ -223,9 +223,9 @@ public class Animal {
                 ", money=" + money +
                 ", clear=" + clear +
                 ", happy=" + happy +
-                ", sick=" + sick +
-                ", unHungry=" + unHungry +
-                ", unHappy=" + unHappy +
+                ", sick=" + (sick ? "SICK" : "HEALTHY") +
+                ", unHungry=" + (unHungry ? "HUNGER" : "NORM") +
+                ", unHappy=" + (unHappy ? "UNHAPPY" : "HAPPY") +
                 ", presents=" + present +
                 '}';
     }

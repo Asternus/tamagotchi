@@ -44,8 +44,6 @@ public class Present {
     public String toString() {
         return "Present{" +
                 "name='" + name + '\'' +
-                ", bonus=" + bonus +
-                ", bonusType=" + bonusType +
                 '}';
     }
 
